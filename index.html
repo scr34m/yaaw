@@ -17,7 +17,7 @@
   You may get a copy of the GNU Lesser General Public License
   from http://www.gnu.org/licenses/lgpl.txt
 -->
-<html lang="en" manifest="offline.appcache">
+<html lang="en">
   <head>
     <meta charset=utf-8 />
     <title>Yet Another Aria2 Web Frontend</title>
@@ -31,6 +31,7 @@
     <!--[if lt IE 9]>
       <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <link rel="manifest" href="manifest.json" />
   </head>
   <body>
     <div class="container">
@@ -497,6 +498,17 @@
       </form>
     </script>
 
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js').then(function(registration) {
+                console.log('Service worker registration succeeded');
+            }).catch(function(error) {
+                console.log('Service worker registration failed:', error);
+            });
+        } else {
+            console.log('Service workers are not supported.');
+        }
+    </script>
     <script src="js/jquery-1.7.2.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.jsonrpc.js"></script>
