@@ -1,4 +1,4 @@
-const CACHE_VERSION = "2018-01-04T19:27:43";
+const CACHE_VERSION = "2018-01-06T11:22:41";
 const URLS = [
     "./index.html",
     "./css/main.css",
